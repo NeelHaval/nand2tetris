@@ -23,4 +23,4 @@ The repository for this project has been layed out such that the individual proj
 
 An acknowledgements file listing any relevant sources used to complete the project is available to view.
 
-In addition to this, several other markdown files are present within the `Fundementals folder` which greatly aid in the understanding of the concepts used in this project.
+In addition to this, several other markdown files are present within the `Fundementals` folder which greatly aid in the understanding of the concepts used in this project.
