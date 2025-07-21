@@ -21,6 +21,6 @@ In this project, I explore how a computer is built from the very basics - nand l
 
 The repository for this project has been layed out such that the individual projects are all within the `projects` folder. Here you will find all of the project resources.
 
-There is also an acknowledgements file listing any relevant sources used to complete the project.
+An acknowledgements file listing any relevant sources used to complete the project.
 
-There are also several other markdown files within the `Fundementals folder` which greatly aid in the understanding of the concepts used in this project.
+In addition to this, several other markdown files within the `Fundementals folder` which greatly aid in the understanding of the concepts used in this project.
