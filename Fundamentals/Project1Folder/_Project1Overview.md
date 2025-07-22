@@ -2,7 +2,7 @@
 
 In project 1, we implement a series of logic gates which are necessary for building the next component of the computer. A significant component this includes is the `ALU`, or arithmetic logic unit.
 
-Implementation of these logic gates begins from the most basic gates: Not, And, Or, Xor, Mux and DMux. From this we can then desgin the repective `multi - bit` and/or `multi - way` counter parts.
+Implementation of these logic gates begins from the most basic gates: Not, And, Or, Xor, Mux and DMux. From this we can then desgin the repective `multi - bit` and/or `multi - way` counter parts. These are all fundamentally designed using a Nand gate - a primitve gate given to us in this case.
 
 To implement these logic gates, we use a HDL, or hardware description language for short. Crucially, HDL is not a programming language. It describes: 
 <br>
