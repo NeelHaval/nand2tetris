@@ -16,7 +16,7 @@ What follows is a cycle of implementing, then using abstraction in order to buil
 
 ## Resources used
 
-- **Logic circuit** - an application used in implementing logic gates
+- **Logic circuit** - an application used in implementing digital circuits
 
 - **Relevant IDE** - used to edit code
 

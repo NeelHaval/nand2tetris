@@ -5,3 +5,6 @@
 
 [2] Noam N, and Shimon, S (2021). The Elements of Computing Systems.
 >Used to understand fundementals of the computing aspects being worked on.
+
+[3] [Logic Circuit](https://www.logiccircuit.org/)
+>Source of software used in designing digital circuits
