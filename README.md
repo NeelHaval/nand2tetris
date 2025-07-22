@@ -12,9 +12,9 @@ Any original content in this repository (such as notes, explanations, or additio
 
 In this project, I explore how a computer is built from the very basics - nand logic gates - to a fully functioning operating system. We go through several projects where we implement in individual steps layers of a computer. 
 
-What follows is a cycle of implementing, then using abstraction in order to build on the implementation. The project excellently demonstrates how a complex machine can be designed and developed upon. The intersection of computer science, computer hardware and programming is carefully explored by curating a self discovered understanding of modern computers.
+What follows is a cycle of implementing, then using abstraction in order to build on the implementation. The project excellently demonstrates how a complex machine can be designed and developed upon. The intersection of computer science, computer hardware and programming is carefully explored by curating a self-discovered understanding of modern computers.
 
-## Resources used
+## Resources Used
 
 - **Logic circuit** - an application used in implementing digital circuits
 
@@ -24,7 +24,7 @@ What follows is a cycle of implementing, then using abstraction in order to buil
 
 ## Navigation around the project
 
-## Project Struture
+## Project Structure
 
 - `projects/`: Contains all individual project resources.
 - `Fundamentals/`: Markdown files explaining key concepts.
