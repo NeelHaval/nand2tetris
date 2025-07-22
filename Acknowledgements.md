@@ -1,4 +1,4 @@
-# References #
+# References
 
 [1] [nand2tetris website.](https://www.nand2tetris.org/)
 >Source of custom nand2tetris software required for project completion. This includes testing and running code (HDL).
