@@ -12,7 +12,7 @@
  *                x & y, x | y
  * on the 16-bit inputs x, y,
  * according to the input bits zx, nx, zy, ny, f, no.
- * In addition, computes the two output bits:
+ * In addition, pcomutes the two output bits:
  * if (out == 0) zr = 1, else zr = 0
  * if (out < 0)  ng = 1, else ng = 0
  */
@@ -41,5 +41,35 @@ CHIP ALU {
         ng;      // if (out < 0)  equals 1, else 0
 
     PARTS:
-    //// Replace this comment with your code.
+
+    // Begin processing the zx and nx bits for x
+    Mux16 (a=x[0..15], b[0..15]=false, sel=zx, out=xOne);
+    Not16 (in=xOne, out=xNot);
+    Mux16 (a=xOne, b=xNot, sel=nx, out=xProcessed);
+
+    // Begin processing zy and ny bits for y
+    Mux16 (a=y[0..15], b[0..15]=false, sel=zy, out=yOne);
+    Not16 (in=yOne, out=yNot);
+    Mux16 (a=yOne, b=yNot, sel=ny, out=yProcessed);
+
+    // Implement the bitwise AND and additon of x and y after their processing
+    And16 (a=xProcessed, b=yProcessed, out=xyAnd);
+    Add16 (a=xProcessed, b=yProcessed, out=xyAdd);
+
+    // Use Mux gate to assign the output using f
+    Mux16 (a=xyAnd, b=xyAdd, sel=f, out=fout);
+
+    // if (no == 1) negate the output
+    Not16 (in=fout, out=fNot);
+
+    // Use Mux gate to assign the output using no
+    // if (out < 0) ng = 1, else ng = 0
+    Mux16 (a=fout, b=fNot, sel=no, out=out, out[15]=ng, out[0..7]=positiveSignedBits, out[8..15]=negativeSignedBits);
+
+    // Assign appropriate value to zr and ng using the value of out
+    Or8Way (in=positiveSignedBits, out=or1);
+    Or8Way (in=negativeSignedBits, out=or2);
+    Or (a=or1, b=or2, out=orOut);
+    Not (in=orOut, out=zr);
+
 }
