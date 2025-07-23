@@ -13,4 +13,4 @@ To implement these logic gates, we use a HDL, or (hardware description language)
 
 Visual representations of the logic gates are present in `Project1Folder/` as images of the chip set up for further understanding.
 
-To avoid over - complicating the images, any 16-Bit/multi-Way gates have been realised as 2-Bit/2-Way gates instead. In addition to this, DMux8Way and Mux8Way16 are omitted due to their similarity with their 4 way counter parts.
+To avoid over-complicating the images, any 16-Bit/multi-Way gates have been realised as 2-Bit/2-Way gates instead. In addition to this, DMux8Way and Mux8Way16 are omitted due to their similarity with their 4 way counter parts.
