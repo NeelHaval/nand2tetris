@@ -22,6 +22,10 @@ What follows is a cycle of implementing, then using abstraction in order to buil
 
 - **Nand2tetris software** - Custom software used to complete specific projects as obtained from the [nand2tetris website](https://www.nand2tetris.org/)
 
+## Testing
+
+Testing of the files may be done using custom software or with the software and files (`.tst`, `.cmp`) supplied on the [nand2tetris website](https://www.nand2tetris.org/). 
+
 ## Navigation around the project
 
 ## Project Structure
