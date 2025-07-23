@@ -66,7 +66,7 @@ CHIP ALU {
     // if (out < 0) ng = 1, else ng = 0
     Mux16 (a=fout, b=fNot, sel=no, out=out, out[15]=ng, out[0..7]=positiveSignedBits, out[8..15]=negativeSignedBits);
 
-    // Assign appropriate value to zr and ng using the value of out
+    // Assign appropriate value to zr using the value of out
     Or8Way (in=positiveSignedBits, out=or1);
     Or8Way (in=negativeSignedBits, out=or2);
     Or (a=or1, b=or2, out=orOut);

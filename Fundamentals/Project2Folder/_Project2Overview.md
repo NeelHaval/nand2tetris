@@ -2,7 +2,7 @@
 
 Project 2 builds the foundations of what later will be an intgral part of the memory system and `CPU` (central processing unit). The focus of this project is the implementation of the `ALU` - arithmetic logic unit. This chip is capable of performing various tasks, all of which involve the computation of signed and unsigned binary values.
 
-Some of the chips which were implemented to allow the `ALU` to do the required calculations are listed below: 
+Some of the chips which were implemented along side the `ALU` to do the required calculations are listed below: 
 - **`Half Adder`**
 - **`Full Adder`**
 - **`16-Bit Adder`**
