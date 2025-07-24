@@ -1,8 +1,8 @@
 # Binary Numbers
 
-Binary forms an important aspect of chip desgin in this project. Unlike project 1, we are now tasked with the `addition` and - indirectly - the `subraction` of bits. This can be explained using the simple maths.
+Binary forms an important aspect of chip design in this project. Unlike project 1, we are now tasked with the `addition` and - indirectly - the `subtraction` of bits. This can be explained using the simple maths.
 
-In our implementation of the `HACK` computer, we use 16 bits. This means there are $2^{16}$ possible combinations of bits. It is worth noting that all of these bits can only be `0 or 1`. Bit string are read from right to left.
+In our implementation of the `HACK` computer, we use 16 bits. This means there are $2^{16}$ possible combinations of bits. It is worth noting that all of these bits can only be `0 or 1`. Bit strings are read from right to left.
 
 It is crucial to note that each binary number can represent decimal number (base 10) and conversion between these two number systems is also possible but not necessary for our chips.
 
@@ -16,7 +16,7 @@ Another thing worth highlighting is that there are two types of binary values or
     - Bit 0 is negative
     - Bits 8 to 15 are negative
 
-The nature of signed bit strings is such that we can use the well known method of `two's complements` to compute the addition and subtraction of negative and positive numbers with relative ease. The following is a number line which shows this clearly:
+The nature of signed bit strings is such that we can use the well-known method of `two's complements` to compute the addition and subtraction of negative and positive numbers with relative ease. The following is a number line which shows this clearly:
 
     Binary   | Decimal (Two's Complement)
     ---------|-------------------
@@ -39,7 +39,7 @@ The nature of signed bit strings is such that we can use the well known method o
 
 This method can be used in understanding how the various **Adder** chips have been implemented in this project.
 
-Another direct implication of the two's complement system is the fact that no matter the number of bits, a 1 present in place of the most significant bit **`msb`** tells us that the particular number is negative. One way to see this is to change a positive number to its negative counterpart. This can be done by:
+Another direct implication of the two's complement system is the fact that no matter the number of bits, a 1 present in place of the most significant bit **`MSB`** tells us that the particular number is negative. One way to see this is to change a positive number to its negative counterpart. This can be done by:
 
 <br>
 
@@ -49,4 +49,4 @@ Another direct implication of the two's complement system is the fact that no ma
 
 - **3.** Adding 1 - which is done by switching every 1 in the bit string to 0 and stopping as soon as a 0 has been flipped to a 1.
 
-You should now notice that the **msb** has a value of 1 (provided a positive number was switched to a negative one).
+You should now notice that the **MSB** has a value of 1 (provided a positive number was switched to a negative one).
