@@ -13,6 +13,12 @@ CHIP PC {
     IN in[16],inc, load, reset;
     OUT out[16];
     
-    PARTS:
-    //// Replace this comment with your code.
+    PARTS: // Note that stored starts with 0 on the first clock cycle
+
+    Register (in=output, load=true, out=out, out=stored);
+    Inc16 (in=stored, out=incremented);
+    Mux16 (a=stored, b=incremented, sel=inc, out=incrementedValue);
+    Mux16 (a=incrementedValue, b=in, sel=load, out=newValue);
+    Mux16 (a=newValue, b[0..15]=false, sel=reset, out=output);
+
 }
