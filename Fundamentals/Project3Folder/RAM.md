@@ -1,6 +1,6 @@
 # RAM Implementations
 
-As project 3 dvelves into memory, RAM (`Random Access Memory`) is one of the most significant areas of study. Various different RAM modules were implemented including:
+As project 3 delves into memory, RAM (`Random Access Memory`) is one of the most significant areas of study. Various different RAM modules were implemented including:
 
 - RAM8
 - RAM64
@@ -8,7 +8,7 @@ As project 3 dvelves into memory, RAM (`Random Access Memory`) is one of the mos
 - RAM4K
 - RAM16K
 
-RAM is fast and volatile memory accessed by programmes actively running on the computer. The implementation of these RAM units can be realised using the more simpler 16-Bit Register. Bellow is a diagram of how a RAM8 uses a 16-Bit Register:
+RAM is fast and volatile memory accessed by programmes actively running on the computer. The implementation of these RAM units can be realised using the simpler 16-Bit Register. Below is a diagram of how a RAM8 uses a 16-Bit Register:
 
 ```
            Input
@@ -37,12 +37,12 @@ From the diagram above, it is possible to see that RAM8 contains 8 16-Bit Regist
 
 > log₂(number of Registers) = address width
 
-For example, the relationship correctly tells us that a RAM module with 64 Registers should have address bit strings of width 6. Each of which are unique to each of the 64 Registers inside. To verify this, we can do the following:
+For example, the relationship correctly tells us that a RAM module with 64 Registers should have addresses of width 6. Each of which are unique to each of the 64 Registers inside. To verify this, we can do the following:
 
 - **1.** Address width of 6.
 - **2.** Therefore 2⁶ possible permutations for the address bit string.
-- **3.** 2⁶ = 64 which is the exact number of Registers our RAM64 module can address to and hence we have verified this claim.
+- **3.** 2⁶ = 64 which is the exact number of Registers our RAM64 module can address, and hence we have verified this claim.
 
-The Implementation of subsequent RAM modules such as RAM4K can be done by combining RAM modules with a Register count which is 8 times lower. The larger the Register count, the greater the address width. This is because using Mux and DMux gates select certain RAM/Registers depending on the specific bit in the address bit string. This process continues until a certain Register is reached to eventually store information.
+## Implementation of RAM modules with higher Register count
 
-An interesting fact is that the Registers within the RAM modules don't store much values in practice and hence it is not economical for the computer to store values in every Register.
+The implementation of subsequent RAM modules such as RAM4K can be done by combining RAM modules with a Register count which is 8 times lower. The larger the Register count, the greater the address width giving rise to more layers of operation required to access a certain Register. This is because Mux and DMux gates select certain `RAM modules/Registers` depending on the specific bit in the address bit string. This process continues until a certain Register is reached to eventually store information.

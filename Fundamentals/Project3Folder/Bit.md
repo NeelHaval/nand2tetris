@@ -1,4 +1,4 @@
-# 1-Bit Register Implementaion
+# 1-Bit Register Implementation
 
 1-Bit Register:
 
@@ -31,4 +31,4 @@ Flow chart summarising process:
 ```
 ## 16-Bit Register
 
-To create a full Register which has inputs and outputs of 16-Bits, we must chain these 1-Bit Registers together as we done in Project 1 with the 16-Bit implementations of the basic logic gates.
+To create a full Register which has inputs and outputs of 16-Bits, we must chain these 1-Bit Registers together as we did in Project 1 with the 16-Bit implementations of the basic logic gates.
