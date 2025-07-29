@@ -9,4 +9,4 @@ The first program serves as an introduction to **`Input/Output (I/O)`** where th
 
 A significant challenge of this project was programming in assembly. The reason for this is that assembly is abstract meaning that it requires a good understanding of the theory behind how the CPU and memory communicate. For this reason, a markdown file has been given as `Project4Folder/CPUMemory.md`.
 
-A markdown file for the explanation of the keyboard and the screen has been given as well to aid understanding of how these input and output devices work with the computer, specifically the CPU. This file is located in: `Project4Folder/I/O.md`.
+A markdown file for the explanation of the keyboard and the screen has been given to aid understanding of how these input and output devices work with the computer, specifically the CPU. This file is located in: `Project4Folder/inputOutput.md`.
