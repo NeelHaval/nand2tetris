@@ -32,5 +32,40 @@ CHIP CPU {
         pc[15];          // address of next instruction
 
     PARTS:
-	//// Replace this comment with your code.
+
+    // Filtering the instruction for A and C instructions
+    Mux16 (a=false, b=instruction, sel=instruction[15], out[0]=CJ3, out[1]=CJ2, out[2]=CJ1,
+    out[3]=CD3, out[3]=writeM, out[4]=CD2, out[5]=CD1, out[6]=CNO, out[7]=CF, out[8]=CNY,
+    out[9]=CZY, out[10]=CNX, out[11]=CZX, out[12]=C1, out[15]=AOrM);
+
+    // ALU
+    ALU (x=ALUx, y=ALUy, zx=CZX, nx=CNX, zy=CZY, ny=CNY, f=CF, no=CNO,
+        out=ALUOut, out=outM, zr=zrFlag, ng=ngFlag);
+
+    // A Register
+    Not (in=AOrM, out=AOrMNot);
+    Or (a=AOrMNot, b=CD1, out=load1);
+    Mux16 (a=instruction, b=ALUOut, sel=AOrM, out=RegAIn);
+    ARegister(in=RegAIn, load=load1, out=RegAOut, out[0..14]=addressM[0..14]);
+
+    // ALU xInput
+    Mux16 (a=RegAOut, b=inM, sel=C1, out=ALUy);
+
+    // ALU yInput
+    DRegister(in=ALUOut, load=CD2, out=ALUx);
+
+    // flag And
+    Not (in=zrFlag, out=zrFlagNot);
+    Not (in=ngFlag, out=ngFlagNot);
+    And (a=zrFlagNot, b=ngFlagNot, out=flagAnd);
+
+    // Jump logic
+    And (a=CJ1, b=ngFlag, out=jump1);
+    And (a=CJ2, b=zrFlag, out=jump2);
+    And (a=CJ3, b=flagAnd, out=jump3);
+    Or (a=jump1, b=jump2, out=jump12);
+    Or (a=jump12, b=jump3, out=jumpOut);
+
+    // PC logic
+    PC(in=RegAOut, load=jumpOut, inc=true, reset=reset, out[0..14]=pc[0..14]);
 }
