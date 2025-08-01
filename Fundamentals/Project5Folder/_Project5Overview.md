@@ -1,12 +1,12 @@
 # Project 5 Overview
 
-In project 5, we design the center piece of the HACK computer: The `HACK architecture`. This is what all prior projects lead up top as all chips built before have been used to construct this architecture. The HACK architecture is made of three distinctive chips. These chips are listed below:
+In project 5, we design the centerpiece of the HACK computer: The `HACK architecture`. This is what all prior projects lead up to, as all chips built before have been used to construct this architecture. The HACK architecture is made of three distinct chips. These chips are listed below:
 
 - **ROM32K**
 - **CPU**
 - **Memory**
 
-The connection between these chips is crucial as the order is important. They are connected in the same order as shown in the list above. The architecture may be thought of as two separate categories. One of these deals with the implementation of the chips individually, whereas the other deals with the connection between the chips. Two files have been given:
+The connection and order of these chips is crucial. They are connected in the same order as shown in the list above. The architecture may be thought of as two separate categories. One of these deals with the implementation of the chips individually, whereas the other deals with the connection between the chips. Two files have been given:
 
 - `Project5Folder/Connections.md`
 - `Project5Folder/Chips.md`
