@@ -30,11 +30,21 @@ symbolTable = {
 # Prompt user for the assembly file to be translated
 userFile = input("What assembly code would you like translated? Please remember to provide the extension .asm: ")
 
+# Check which folder the selected file is in
+if userFile.startswith("Add"):
+    folder = "add"
+elif userFile.startswith("Max"):
+    folder = "max"
+elif userFile.startswith("Pong"):
+    folder = "pong"
+elif userFile.startswith("Rect"):
+    folder = "rect"
+
 # Create file to save cleaned assembly code
 asmClean = []
 
 # Store .asm file in variable and open
-asmFile = open(userFile, "r")
+asmFile = open(f"projects/6/{folder}/{userFile}", "r")
 
 # Read .asm file
 asmCode = asmFile.readlines()
