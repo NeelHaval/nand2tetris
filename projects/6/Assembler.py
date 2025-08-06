@@ -28,7 +28,7 @@ symbolTable = {
     
 }
 
-# Create dictionaries to store predefined C-instruction operations
+# Create dictionaries to store predefined C-instruction operations along with all possible permutations
 
 # C-instruction comp
 comp = {
@@ -63,20 +63,26 @@ comp = {
 }
 
 # C-instruction dest
-
 dest = {
     "null": "000",
     "M": "001",
     "D": "010",
     "DM": "011",
+    "MD": "011",
     "A": "100",
     "AM": "101",
+    "MA": "101",
     "AD": "110",
-    "ADM": "111"
+    "DA": "110",
+    "ADM": "111",
+    "AMD": "111",
+    "DAM": "111",
+    "DMA": "111",
+    "MAD": "111",
+    "MDA": "111"
 }
 
 # C-instruction jump
-
 jump = {
     "null": "000",
     "JGT": "001",
