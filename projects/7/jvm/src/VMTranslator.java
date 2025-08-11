@@ -1,7 +1,7 @@
 // Package location
 package src;
 
-// imports
+// Imports
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -125,6 +125,13 @@ public class VMTranslator {
         System.out.println("Current state of VM instructions to be parsed: " + fileCopy);
 
         // Pass each instruction (element in ArrayList) to Parser class 
+        for (int i = 0; i < fileCopy.size(); i++) {
+
+            // Retrieve and use parse() method from Parser class
+            ArrayList<String> instrArrList = Parser.parse(fileCopy.get(i));
+
+        }
 
     }
+
 }
