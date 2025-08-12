@@ -115,7 +115,9 @@ public class VMTranslator {
 
           if (fileCopy.get(i).contains("//")) {
 
-            fileCopy.remove(i);
+            int position = fileCopy.get(i).indexOf("//");
+            String instrOnly = ((fileCopy.get(i)).substring(0, position)).trim();
+            fileCopy.set(i, instrOnly);
 
           }  
 
@@ -124,11 +126,14 @@ public class VMTranslator {
         // *** TRIAL ***
         System.out.println("Current state of VM instructions to be parsed: " + fileCopy);
 
-        // Pass each instruction (element in ArrayList) to Parser class 
+        // Pass each instruction to Parser class
         for (int i = 0; i < fileCopy.size(); i++) {
 
-            // Retrieve and use parse() method from Parser class
+            // Retrieve instructions and use parse() method from Parser class
             ArrayList<String> instrArrList = Parser.parse(fileCopy.get(i));
+
+            // Use writeAsm() from CodeWriter class to write assembly
+            CodeWriter.writeAsm(instrArrList);
 
         }
 
