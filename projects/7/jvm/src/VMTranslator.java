@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.IOException;
 
 // Create VMTranslator class
 public class VMTranslator {
@@ -15,6 +17,9 @@ public class VMTranslator {
 
         // Prompt user for file
         String fileName = args[0];
+
+        // Send fileName variable to CodeWriter class
+        CodeWriter.fName(fileName.substring(0, fileName.length() - 3));
 
         // *** TRIAL ***
         System.out.println("VM file to be translated: " + fileName);
@@ -91,22 +96,11 @@ public class VMTranslator {
             }
 
             scanner.close();
-            
+
         // Catch statement
         } catch (FileNotFoundException err) {
 
             System.out.println("Please enter valid file.");
-
-        }
-
-        // Remove empty lines by looping backwards
-        for (int i = fileCopy.size() - 1; i >= 0; i--) {
-
-            if (fileCopy.get(i).isEmpty()) {
-
-                fileCopy.remove(i);
-
-            }
 
         }
 
@@ -123,8 +117,30 @@ public class VMTranslator {
 
         }
 
+        // Remove empty lines by looping backwards
+        for (int i = fileCopy.size() - 1; i >= 0; i--) {
+
+            if (fileCopy.get(i).isEmpty()) {
+
+                fileCopy.remove(i);
+
+            }
+
+        }
+
         // *** TRIAL ***
         System.out.println("Current state of VM instructions to be parsed: " + fileCopy);
+
+        // Open file and erase
+        try (FileWriter asm = new FileWriter(fileName.substring(0, fileName.length() - 3) + ".asm", false);) {
+
+            asm.write("");
+
+        } catch (IOException err) {
+
+            err.printStackTrace();
+
+        }
 
         // Pass each instruction to Parser class
         for (int i = 0; i < fileCopy.size(); i++) {
