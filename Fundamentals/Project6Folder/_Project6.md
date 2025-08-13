@@ -1,4 +1,4 @@
-# Project 6
+# Project 6 - Assembler
 
 Content relating to project 6 is presented in this file only due to the fact that the assembler is the primary focus of this project. In this project, as described above, the main task was to create an assembler. The purpose of the assembler is simple: Convert HACK assembly code into machine code - or binary - used by the HACK computer. The realization however is not as simple. Python - which is a high level programming language - was used to implement the assembler. The overall flow of the program and the techniques used to achieve translation of the assembly code are explained below. See `projects/6/Assembler.py` for context.
 
