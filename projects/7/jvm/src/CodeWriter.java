@@ -29,6 +29,8 @@ public class CodeWriter {
         SUB,
         NEG,
         EQ,
+        LT,
+        GT,
         AND,
         OR,
         NOT
@@ -126,22 +128,22 @@ public class CodeWriter {
                     String labelEnd = "EQ_END_" + labelCounter;
                     labelCounter++;
 
-                    asm.write("@SP\n");
-                    asm.write("AM=M-1\n");
-                    asm.write("D=M\n");
-                    asm.write("A=A-1\n");
-                    asm.write("D=M-D\n");
+                    asm.write("@SP" + "\n");
+                    asm.write("AM=M-1" + "\n");
+                    asm.write("D=M" + "\n");
+                    asm.write("A=A-1" + "\n");
+                    asm.write("D=M-D" + "\n");
                     asm.write("@" + labelTrue + "\n");
-                    asm.write("D;JEQ\n");
-                    asm.write("@SP\n");
-                    asm.write("A=M-1\n");
-                    asm.write("M=0\n");           
+                    asm.write("D;JEQ" + "\n");
+                    asm.write("@SP" + "\n");
+                    asm.write("A=M-1" + "\n");
+                    asm.write("M=0" + "\n");           
                     asm.write("@" + labelEnd + "\n");
-                    asm.write("0;JMP\n");         
+                    asm.write("0;JMP" + "\n");         
                     asm.write("(" + labelTrue + ")\n");
-                    asm.write("@SP\n");
-                    asm.write("A=M-1\n");
-                    asm.write("M=-1\n");
+                    asm.write("@SP" + "\n");
+                    asm.write("A=M-1" + "\n");
+                    asm.write("M=-1" + "\n");
                     asm.write("(" + labelEnd + ")\n");
 
                 } catch (IOException err) {
@@ -150,6 +152,65 @@ public class CodeWriter {
 
                 }
 
+                break;
+
+            case LT:
+
+                try (FileWriter asm = new FileWriter(fileName + ".asm", true)) {
+
+                    String labelTrue = "LT_TRUE_" + labelCounter;
+                    String labelEnd = "LT_END_" + labelCounter;
+                    labelCounter++;
+
+                    asm.write("@SP" + "\n");
+                    asm.write("AM=M-1" + "\n");
+                    asm.write("D=M" + "\n");
+                    asm.write("A=A-1" + "\n");
+                    asm.write("D=M-D" + "\n");
+                    asm.write("@" + labelTrue + "\n");
+                    asm.write("D;JLT" + "\n");
+                    asm.write("@SP" + "\n");
+                    asm.write("A=M-1" + "\n");
+                    asm.write("M=0" + "\n");
+                    asm.write("@" + labelEnd + "\n");
+                    asm.write("0;JMP" + "\n");
+                    asm.write("(" + labelTrue + ")\n");
+                    asm.write("@SP" + "\n");
+                    asm.write("A=M-1" + "\n");
+                    asm.write("M=-1" + "\n");
+                    asm.write("(" + labelEnd + ")\n");
+                } catch (IOException err) {
+                    err.printStackTrace();
+                }
+                break;
+
+            case GT:
+
+                try (FileWriter asm = new FileWriter(fileName + ".asm", true)) {
+                    String labelTrue = "GT_TRUE_" + labelCounter;
+                    String labelEnd = "GT_END_" + labelCounter;
+                    labelCounter++;
+
+                    asm.write("@SP" + "\n");
+                    asm.write("AM=M-1" + "\n");
+                    asm.write("D=M" + "\n");
+                    asm.write("A=A-1" + "\n");
+                    asm.write("D=M-D" + "\n");
+                    asm.write("@" + labelTrue + "\n");
+                    asm.write("D;JGT" + "\n");
+                    asm.write("@SP" + "\n");
+                    asm.write("A=M-1" + "\n");
+                    asm.write("M=0" + "\n");
+                    asm.write("@" + labelEnd + "\n");
+                    asm.write("0;JMP" + "\n");
+                    asm.write("(" + labelTrue + ")\n");
+                    asm.write("@SP" + "\n");
+                    asm.write("A=M-1" + "\n");
+                    asm.write("M=-1" + "\n");
+                    asm.write("(" + labelEnd + ")\n");
+                } catch (IOException err) {
+                    err.printStackTrace();
+                }
                 break;
 
             case AND:
