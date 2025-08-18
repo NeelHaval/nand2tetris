@@ -488,7 +488,6 @@ public class CodeWriter {
                 asm.write("A=M" + "\n");
                 asm.write("M=D" + "\n");
 
-
             } catch (IOException err) {
 
                 err.printStackTrace();
