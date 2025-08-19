@@ -28,13 +28,14 @@ public class VMTranslator {
         String folderName;
 
         // Compute folder name
-        if (fileName.contains("Basic") || fileName.contains("Pointer") || fileName.contains("Static")) {
+        if (fileName.contains("Main") || fileName.contains("Sys") || fileName.contains("SimpleFunction") || fileName.contains("Class1") 
+        || fileName.contains("Class2")) {
 
-            folderName = "MemoryAccess";
+            folderName = "FunctionCalls";
 
-        } else if (fileName.contains("Simple") || fileName.contains("Stack")) {
+        } else if (fileName.contains("BasicLoop.vm") || fileName.contains("FibonacciSeries")) {
 
-            folderName = "StackArithmetic";
+            folderName = "ProgramFlow";
 
         } else {
 
@@ -43,37 +44,16 @@ public class VMTranslator {
         }
 
         // *** TRIAL ***
-        System.out.println("MemoryAccess or StackArithmetic? " + folderName);
+        System.out.println("FunctionCalls or ProgramFlow? " + folderName);
 
-        // Initialize sub folders
-        String subFolderName;
+        // Read subFolderName
+        Scanner scanner1 = new Scanner(System.in);
 
-        // Compute sub folder name
-        if (fileName.contains("Basic")) {
+        System.out.print("Sub-Folder name please: ");
 
-            subFolderName = "BasicTest";
+        String subFolderName = scanner1.nextLine().trim();
 
-        } else if (fileName.contains("Pointer")) {
-
-            subFolderName = "PointerTest";
-            
-        } else if (fileName.contains("Static")) {
-
-            subFolderName = "StaticTest";
-            
-        } else if (fileName.contains("Simple")) {
-
-            subFolderName = "SimpleAdd";
-            
-        } else if (fileName.contains("Stack")) {
-
-            subFolderName = "StackTest";
-            
-        } else {
-
-            throw new IllegalArgumentException("Please Enter valid file name.");
-
-        }
+        scanner1.close();
 
         // *** TRIAL ***
         System.out.println("Sub-Folder: " + subFolderName);
@@ -85,17 +65,17 @@ public class VMTranslator {
         try {
 
             // Create Scanner object
-            Scanner scanner = new Scanner(new File("../" + folderName + "/" + subFolderName + "/" + fileName));
+            Scanner scanner2 = new Scanner(new File("../" + folderName + "/" + subFolderName + "/" + fileName));
 
             // Add all lines to fileCopyOne ArrayList
-            while (scanner.hasNextLine()) {
+            while (scanner2.hasNextLine()) {
 
-                String line = scanner.nextLine().trim();
+                String line = scanner2.nextLine().trim();
                 fileCopy.add(line);
 
             }
 
-            scanner.close();
+            scanner2.close();
 
         // Catch statement
         } catch (FileNotFoundException err) {
