@@ -5,6 +5,7 @@ Project 7 serves as the basis for the VM Translator. The purpose of the VM Trans
 - 1. **Implementation**
 - 2. **Challenges**
 - 3. **Foundations**
+- 4. **Running the program**
 
 ## Implementation
 
@@ -36,7 +37,7 @@ The implementation described above relies heavily on stack logic where values ar
 The values pushed/popped onto/off the stack come from the addresses shown above and are unique to the computation currently being processed by the hardware. Below is a flow diagram showing this arrangement:
 
 ```
-| Address | Segment   |
+| Address | Segment  |
 |---------|----------|
 |   0     | SP       |  // Stack Pointer
 |   1     | LCL      |  // Local segment base
@@ -52,4 +53,4 @@ The values pushed/popped onto/off the stack come from the addresses shown above 
 Note: **_`Fixed` above means that the base address of the temporary and static segments are fixed. For other segments such as SP and LCL these base addresses are mutable - meaning they can change._**
 
 ## Running the program
-As this project is built using java, you will need to have `java version 8++` as a minimum to ensure compatibility with features used. The implementation of the VMTranslator is split into two stages throughout projects 7 to 8. At this stage in project 7, the VMTranslator java class file contains the main method which is the entry point into the program. To run the file, assuming the file path is the same: **`java src/VMTranslator arg`**. Where `arg` is the name of the file to be translated including the _.vm_ extension at the end. Upon running the program, an output `.asm` file will be generated inside `projects/7/jvm`. This file can then be used to test the VMTranslator by using it in the official nand2tetris test suite.
+As this project is built using java, you will need to have `java version 8++` as a minimum to ensure compatibility with features used. The implementation of the VM Translator is split into two stages throughout projects 7 to 8. At this stage in project 7, the VM Translator java class file contains the main method which is the entry point into the program. To run the file, assuming the file path is the same: **`java src/VMTranslator arg`**. Where `arg` is the name of the file to be translated including the _.vm_ extension at the end. Upon running the program, an output `.asm` file will be generated inside `projects/7/jvm`. This file can then be used to test the VM Translator by using it in the official nand2tetris test suite.
