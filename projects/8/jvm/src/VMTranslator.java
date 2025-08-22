@@ -12,28 +12,28 @@ import java.io.IOException;
 // Create VMTranslator class
 public class VMTranslator {
 
+    // Variable to keep track of return address in CodeWriter
+    private static int n;
+
     // Main method
     public static void main(String[] args) {
 
         // Prompt user for file
-        String fileName = args[0];
-
-        // Send fileName variable to CodeWriter class
-        CodeWriter.fName(fileName.substring(0, fileName.length() - 3));
+        String subFile = args[0];
 
         // *** TRIAL ***
-        System.out.println("VM file to be translated: " + fileName);
+        System.out.println("VM file to be translated: " + subFile + ".vm");
 
         // Initialize folder
         String folderName;
 
         // Compute folder name
-        if (fileName.contains("Main") || fileName.contains("Sys") || fileName.contains("SimpleFunction") || fileName.contains("Class1") 
-        || fileName.contains("Class2")) {
+        if (subFile.contains("Main") || subFile.contains("Sys") || subFile.contains("SimpleFunction") || subFile.contains("Class1") 
+        || subFile.contains("Class2")) {
 
             folderName = "FunctionCalls";
 
-        } else if (fileName.contains("BasicLoop.vm") || fileName.contains("FibonacciSeries")) {
+        } else if (subFile.contains("BasicLoop") || subFile.contains("FibonacciSeries")) {
 
             folderName = "ProgramFlow";
 
@@ -55,6 +55,9 @@ public class VMTranslator {
 
         scanner1.close();
 
+        // Send fileName variable to CodeWriter class
+        CodeWriter.fName(subFile);
+
         // *** TRIAL ***
         System.out.println("Sub-Folder: " + subFolderName);
 
@@ -65,7 +68,7 @@ public class VMTranslator {
         try {
 
             // Create Scanner object
-            Scanner scanner2 = new Scanner(new File("../" + folderName + "/" + subFolderName + "/" + fileName));
+            Scanner scanner2 = new Scanner(new File("../" + folderName + "/" + subFolderName + "/" + subFile + ".vm"));
 
             // Add all lines to fileCopyOne ArrayList
             while (scanner2.hasNextLine()) {
@@ -112,7 +115,7 @@ public class VMTranslator {
         System.out.println("Current state of VM instructions to be parsed: " + fileCopy);
 
         // Open file and erase
-        try (FileWriter asm = new FileWriter(fileName.substring(0, fileName.length() - 3) + ".asm", false);) {
+        try (FileWriter asm = new FileWriter("../asmInstructions/" + subFile + ".asm", false);) {
 
             asm.write("");
 
@@ -127,6 +130,15 @@ public class VMTranslator {
 
             // Retrieve instructions and use parse() method from Parser class
             ArrayList<String> instrArrList = Parser.parse(fileCopy.get(i));
+
+            if (i == 0) {
+
+                n = 0;
+
+            }
+
+            // Use incN() from CodeWriter class to keep track of return address label
+            CodeWriter.incN(n);
 
             // Use writeAsm() from CodeWriter class to write assembly
             CodeWriter.writeAsm(instrArrList);
