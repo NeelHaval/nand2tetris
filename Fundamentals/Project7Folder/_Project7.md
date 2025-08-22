@@ -50,3 +50,6 @@ The values pushed/popped onto/off the stack come from the addresses shown above 
 ```
 
 Note: **_`Fixed` above means that the base address of the temporary and static segments are fixed. For other segments such as SP and LCL these base addresses are mutable - meaning they can change._**
+
+## Running the program
+As this project is built using java, you will need to have `java version 8++` as a minimum to ensure compatibility with features used. The implementation of the VMTranslator is split into two stages throughout projects 7 to 8. At this stage in project 7, the VMTranslator java class file contains the main method which is the entry point into the program. To run the file, assuming the file path is the same: **`java src/VMTranslator arg`**. Where `arg` is the name of the file to be translated including the _.vm_ extension at the end. Upon running the program, an output `.asm` file will be generated inside `projects/7/jvm`. This file can then be used to test the VMTranslator by using it in the official nand2tetris test suite.
