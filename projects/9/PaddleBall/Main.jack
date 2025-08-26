@@ -1,0 +1,98 @@
+// Define Main class
+class Main {
+
+    // Entry point into the program
+    function void main() {
+
+        // Initialize required objects
+        var Paddle paddle;
+        var Ball ball;
+
+        // initialize required variables
+        var boolean running;
+        var int key, nextX, nextY, r;
+        var int step, padW, padH, padY;
+
+        // Clear the screen and provide user with instructions
+        do Screen.clearScreen();
+        do Output.printString("Paddle Ball - A/D to move, Q to quit");
+        do Output.println();
+
+        // Initialize positioning variables
+        let padW = 40;
+        let padH = 6;
+        let padY = 240;
+        let step = 5;
+
+        // Position paddle in centre if screen relative to the x axis
+        let paddle = Paddle.new((512 - padW) / 2, padY, padW, padH);
+        do paddle.draw();
+
+        // Position ball in centre of screen and begin moving diagonally downwards
+        let ball = Ball.new(256, 120, 3, 2, 2);
+        do ball.draw();
+
+        // Boolean value to control while loop
+        let running = true;
+
+        // Processes user input and translates into on-screen movement
+        while (running) {
+
+            // Checks current user input
+            let key = Keyboard.keyPressed();
+
+            // Changes direction based on user input "A" or "D"
+            if (key = 97) { 
+                do paddle.moveLeft(step); 
+                }
+            if (key = 100) {
+                do paddle.moveRight(step); 
+                }
+
+            // Allows the user to quite game using "Q"
+            if (key = 113) { 
+                let running = false; 
+                }
+
+            // Calculates next position of the ball using current position and velocity value
+            // Note that nextX, nextY and r are necessary to detect potential collisions
+            let nextX = ball.getX() + ball.getDx();
+            let nextY = ball.getY() + ball.getDy();
+            let r    = ball.getR();
+
+            // Reflects ball from wall once screen boundaries are reached
+            if ((nextX - r) < 0) { 
+                do ball.reverseX(); 
+                }
+            if ((nextX + r) > 511) { 
+                do ball.reverseX(); 
+                }
+            if ((nextY - r) < 0) { 
+                do ball.reverseY(); 
+                }
+
+            // Ball is reflected from paddle upon intersection with its axes
+            if ((ball.getDy() > 0) & ((nextY + r) > (paddle.top() - 1)) &
+                (nextX > (paddle.left() - 1)) & (nextX < (paddle.right() + 1))) {
+                do ball.reverseY();
+            }
+
+            // Erases primary ball position followed by drawing the ball in its new position
+            do ball.erase();
+            do ball.step();
+            do ball.draw();
+
+            // Game finishes if ball exceeds lower limit of screen
+            if ((ball.getY() + r) > 255) { let running = false; }
+
+            do Sys.wait(2);
+
+        }
+
+        // Prints game over text.
+        do Output.printString("Game Over");
+        do Output.println();
+        return;
+
+    }
+}
