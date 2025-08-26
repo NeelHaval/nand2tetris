@@ -54,7 +54,7 @@ class Paddle {
     method void moveRight(int step) {
 
         do this.erase();
-        let this.x - this.x + step;
+        let this.x = this.x + step;
         if ((this.x + this.w) > 512) {
             let this.x = 512 - this.w;
         }

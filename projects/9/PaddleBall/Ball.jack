@@ -29,11 +29,14 @@ class Ball {
     }
 
     // Create erase() method
-    method void erase();
+    method void erase() {
+        
     do Screen.setColor(false);
     do Screen.drawCircle(this.x, this.y, this.r);
     do Screen.setColor(true);
     return;
+
+    }
 
     // Create step method to calculate distance traveled by ball
     method void step() {
