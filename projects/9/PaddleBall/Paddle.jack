@@ -5,7 +5,7 @@ class Paddle {
     field int x, y, w, h;
 
     // Create paddle constructor
-    Constructor Paddle new(int startX, int startY, int width, int height) {
+    constructor Paddle new(int startX, int startY, int width, int height) {
 
         // Allocate memory space withing heap for the four field variables
         let this = Memory.alloc(4);
@@ -34,6 +34,7 @@ class Paddle {
 
         // Set color to true immediately for use in next command
         do Screen.setColor(true);
+        return;
 
     }
 

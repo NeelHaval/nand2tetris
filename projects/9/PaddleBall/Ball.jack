@@ -6,7 +6,7 @@ class Ball {
     field int dx, dy;
 
     // Create ball constructor
-    Constructor Ball new(int startX, int startY, int radius, int vx, int vy) {
+    constructor Ball new(int startX, int startY, int radius, int vx, int vy) {
 
         // Allocate memory space withing heap for the five field variables
         let this = Memory.alloc(5);
@@ -15,7 +15,7 @@ class Ball {
         let this.r = radius;
         let this.dx = vx;
         let this.dy = vy;
-        return;
+        return this;
 
     }
 
@@ -30,7 +30,7 @@ class Ball {
 
     // Create erase() method
     method void erase() {
-        
+
     do Screen.setColor(false);
     do Screen.drawCircle(this.x, this.y, this.r);
     do Screen.setColor(true);
