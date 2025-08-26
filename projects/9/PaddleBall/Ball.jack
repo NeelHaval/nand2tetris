@@ -9,7 +9,8 @@ class Ball {
     constructor Ball new(int startX, int startY, int radius, int vx, int vy) {
 
         // Allocate memory space withing heap for the five field variables
-        let this = Memory.alloc(5);
+        let x = Memory.alloc(5);
+        let this = x;
         let this.x = startX;
         let this.y = startY;
         let this.r = radius;
