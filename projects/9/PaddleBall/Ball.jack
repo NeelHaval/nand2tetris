@@ -1,0 +1,79 @@
+// Define Ball class
+class Ball {
+
+    // initialize position and size variables
+    field int x, y, r;
+    field int dx, dy;
+
+    // Create ball constructor
+    Constructor Ball new(int startX, int startY, int radius, int vx, int vy) {
+
+        // Allocate memory space withing heap for the five field variables
+        let this = Memory.alloc(5);
+        let this.x = startX;
+        let this.y = startY;
+        let this.r = radius;
+        let this.dx = vx;
+        let this.dy = vy;
+        return;
+
+    }
+
+    // Create draw() method
+    method void draw() {
+
+        do Screen.setColor(true);
+        do Screen.drawCircle(this.x, this.y, this.r);
+        return;
+
+    }
+
+    // Create erase() method
+    method void erase();
+    do Screen.setColor(false);
+    do Screen.drawCircle(this.x, this.y, this.r);
+    do Screen.setColor(true);
+    return;
+
+    // Create step method to calculate distance traveled by ball
+    method void step() {
+
+        let this.x = this.x + this.dx;
+        let this.y = this.y + this.dy;
+        return;
+
+    }
+
+    // Implement methods to show ball reflecting from wall
+    method void reverseX() {
+
+        let this.dx = 0 - this.dx;
+        return;
+
+    }
+
+    method void reverseY() {
+
+        let this.dy = 0 - this.dy;
+        return;
+
+    }
+
+    // Implement methods to return position and velocity of ball
+    method int getX() {
+        return this.x;
+    }
+    method int getY() {
+        return this.y;
+    }
+    method int getR() {
+        return this.r;
+    }
+    method int getDX() {
+        return this.dx;
+    }
+    method int getDY() {
+        return this.dy;
+    }
+
+}

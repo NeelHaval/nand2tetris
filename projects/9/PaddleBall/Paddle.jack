@@ -4,7 +4,7 @@ class Paddle {
     // initialize position and size variables
     field int x, y, w, h;
 
-    // Create constructor
+    // Create paddle constructor
     Constructor Paddle new(int startX, int startY, int width, int height) {
 
         // Allocate memory space withing heap for the four field variables
@@ -13,8 +13,6 @@ class Paddle {
         let this.y = startY;
         let this.w = width;
         let this.h = height;
-
-        // Provide caller with access to field variable memory block
         return this;
 
     }
