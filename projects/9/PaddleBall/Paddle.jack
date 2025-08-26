@@ -1,0 +1,81 @@
+// Define Paddle class
+class Paddle {
+
+    // initialize position and size variables
+    field int x, y, w, h;
+
+    // Create constructor
+    Constructor Paddle new(int startX, int startY, int width, int height) {
+
+        // Allocate memory space withing heap for the four field variables
+        let this = Memory.alloc(4);
+        let this.x = startX;
+        let this.y = startY;
+        let this.w = width;
+        let this.h = height;
+
+        // Provide caller with access to field variable memory block
+        return this;
+
+    }
+
+    // Create draw() method
+    method void draw() {
+
+        do Screen.setColor(true);
+        do Screen.drawRectangle(this.x, this.y, this.x + this.w - 1, this.y + this.h - 1);
+        return;
+
+    }
+
+    // Create erase() method
+    method void erase() {
+
+        do Screen.setColor(false);
+        do Screen.drawRectangle(this.x, this.y, this.x + this.w - 1, this.y + this.h - 1);
+
+        // Set color to true immediately for use in next command
+        do Screen.setColor(true);
+
+    }
+
+    // Create move left logic
+    method void moveLeft(int step) {
+
+        do this.erase();
+        let this.x = this.x - step;
+        if (this.x < 0) {
+            let this.x = 0;
+        }
+        do this.draw();
+        return;
+
+    }
+
+    // Create move right logic
+    method void moveRight(int step) {
+
+        do this.erase();
+        let this.x - this.x + step;
+        if ((this.x + this.w) > 512) {
+            let this.x = 512 - this.w;
+        }
+        do this.draw();
+        return;
+
+    }
+
+    // Define return functions for use in other classes
+    method int top() {
+        return this.y;
+    }
+
+    method int right() {
+        return this.x + this.w;
+    }
+
+    method int left() {
+        return this.x;
+    }
+
+}
