@@ -192,7 +192,7 @@ label IF_FALSE4
 push local 5
 push local 6
 sub
-push constant 0
+push constant 10
 lt
 if-goto IF_TRUE5
 goto IF_FALSE5

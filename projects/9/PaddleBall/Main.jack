@@ -67,7 +67,7 @@ class Main {
             if ((nextX + r) > 511) { 
                 do ball.reverseX(); 
                 }
-            if ((nextY - r) < 0) { 
+            if ((nextY - r) < 10) { 
                 do ball.reverseY(); 
                 }
 
