@@ -7,8 +7,6 @@ class Paddle {
     // Create paddle constructor
     constructor Paddle new(int startX, int startY, int width, int height) {
 
-        // Allocate memory space withing heap for the four field variables
-        let x = Memory.alloc(4);
         let this = x;
         let this.x = startX;
         let this.y = startY;

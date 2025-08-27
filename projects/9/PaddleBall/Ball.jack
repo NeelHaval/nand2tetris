@@ -8,8 +8,6 @@ class Ball {
     // Create ball constructor
     constructor Ball new(int startX, int startY, int radius, int vx, int vy) {
 
-        // Allocate memory space withing heap for the five field variables
-        let x = Memory.alloc(5);
         let this = x;
         let this.x = startX;
         let this.y = startY;

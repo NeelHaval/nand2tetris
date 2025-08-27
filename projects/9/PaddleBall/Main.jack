@@ -56,8 +56,8 @@ class Main {
 
             // Calculates next position of the ball using current position and velocity value
             // Note that nextX, nextY and r are necessary to detect potential collisions
-            let nextX = ball.getX() + ball.getDx();
-            let nextY = ball.getY() + ball.getDy();
+            let nextX = ball.getX() + ball.getDX();
+            let nextY = ball.getY() + ball.getDY();
             let r    = ball.getR();
 
             // Reflects ball from wall once screen boundaries are reached
@@ -72,7 +72,7 @@ class Main {
                 }
 
             // Ball is reflected from paddle upon intersection with its axes
-            if ((ball.getDy() > 0) & ((nextY + r) > (paddle.top() - 1)) &
+            if ((ball.getDY() > 0) & ((nextY + r) > (paddle.top() - 1)) &
                 (nextX > (paddle.left() - 1)) & (nextX < (paddle.right() + 1))) {
                 do ball.reverseY();
             }
