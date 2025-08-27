@@ -153,13 +153,13 @@ label IF_FALSE2
 push local 1
 call Ball.getX 1
 push local 1
-call Ball.getDx 1
+call Ball.getDX 1
 add
 pop local 4
 push local 1
 call Ball.getY 1
 push local 1
-call Ball.getDy 1
+call Ball.getDY 1
 add
 pop local 5
 push local 1
@@ -202,7 +202,7 @@ call Ball.reverseY 1
 pop temp 0
 label IF_FALSE5
 push local 1
-call Ball.getDy 1
+call Ball.getDY 1
 push constant 0
 gt
 push local 5

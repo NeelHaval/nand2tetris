@@ -8,7 +8,6 @@ class Ball {
     // Create ball constructor
     constructor Ball new(int startX, int startY, int radius, int vx, int vy) {
 
-        let this = x;
         let this.x = startX;
         let this.y = startY;
         let this.r = radius;

@@ -7,7 +7,6 @@ class Paddle {
     // Create paddle constructor
     constructor Paddle new(int startX, int startY, int width, int height) {
 
-        let this = x;
         let this.x = startX;
         let this.y = startY;
         let this.w = width;
