@@ -7,10 +7,10 @@ class Paddle {
     // Create paddle constructor
     constructor Paddle new(int startX, int startY, int width, int height) {
 
-        let this.x = startX;
-        let this.y = startY;
-        let this.w = width;
-        let this.h = height;
+        let x = startX;
+        let y = startY;
+        let w = width;
+        let h = height;
         return this;
 
     }
@@ -19,7 +19,7 @@ class Paddle {
     method void draw() {
 
         do Screen.setColor(true);
-        do Screen.drawRectangle(this.x, this.y, this.x + this.w - 1, this.y + this.h - 1);
+        do Screen.drawRectangle(x, y, x + w - 1, y + h - 1);
         return;
 
     }
@@ -28,7 +28,7 @@ class Paddle {
     method void erase() {
 
         do Screen.setColor(false);
-        do Screen.drawRectangle(this.x, this.y, this.x + this.w - 1, this.y + this.h - 1);
+        do Screen.drawRectangle(x, y, x + w - 1, y + h - 1);
 
         // Set color to true immediately for use in next command
         do Screen.setColor(true);
@@ -39,12 +39,12 @@ class Paddle {
     // Create move left logic
     method void moveLeft(int step) {
 
-        do this.erase();
-        let this.x = this.x - step;
-        if (this.x < 0) {
-            let this.x = 0;
+        do erase();
+        let x = x - step;
+        if (x < 0) {
+            let x = 0;
         }
-        do this.draw();
+        do draw();
         return;
 
     }
@@ -52,27 +52,27 @@ class Paddle {
     // Create move right logic
     method void moveRight(int step) {
 
-        do this.erase();
-        let this.x = this.x + step;
-        if ((this.x + this.w) > 512) {
-            let this.x = 512 - this.w;
+        do erase();
+        let x = x + step;
+        if ((x + w) > 512) {
+            let x = 512 - w;
         }
-        do this.draw();
+        do draw();
         return;
 
     }
 
     // Define return functions for use in other classes
     method int top() {
-        return this.y;
+        return y;
     }
 
     method int right() {
-        return this.x + this.w;
+        return x + w;
     }
 
     method int left() {
-        return this.x;
+        return x;
     }
 
 }

@@ -8,11 +8,11 @@ class Ball {
     // Create ball constructor
     constructor Ball new(int startX, int startY, int radius, int vx, int vy) {
 
-        let this.x = startX;
-        let this.y = startY;
-        let this.r = radius;
-        let this.dx = vx;
-        let this.dy = vy;
+        let x = startX;
+        let y = startY;
+        let r = radius;
+        let dx = vx;
+        let dy = vy;
         return this;
 
     }
@@ -21,7 +21,7 @@ class Ball {
     method void draw() {
 
         do Screen.setColor(true);
-        do Screen.drawCircle(this.x, this.y, this.r);
+        do Screen.drawCircle(x, y, r);
         return;
 
     }
@@ -30,7 +30,7 @@ class Ball {
     method void erase() {
 
     do Screen.setColor(false);
-    do Screen.drawCircle(this.x, this.y, this.r);
+    do Screen.drawCircle(x, y, r);
     do Screen.setColor(true);
     return;
 
@@ -39,8 +39,8 @@ class Ball {
     // Create step method to calculate distance traveled by ball
     method void step() {
 
-        let this.x = this.x + this.dx;
-        let this.y = this.y + this.dy;
+        let x = x + dx;
+        let y = y + dy;
         return;
 
     }
@@ -48,33 +48,33 @@ class Ball {
     // Implement methods to show ball reflecting from wall
     method void reverseX() {
 
-        let this.dx = 0 - this.dx;
+        let dx = 0 - dx;
         return;
 
     }
 
     method void reverseY() {
 
-        let this.dy = 0 - this.dy;
+        let dy = 0 - dy;
         return;
 
     }
 
     // Implement methods to return position and velocity of ball
     method int getX() {
-        return this.x;
+        return x;
     }
     method int getY() {
-        return this.y;
+        return y;
     }
     method int getR() {
-        return this.r;
+        return r;
     }
     method int getDX() {
-        return this.dx;
+        return dx;
     }
     method int getDY() {
-        return this.dy;
+        return dy;
     }
 
 }
