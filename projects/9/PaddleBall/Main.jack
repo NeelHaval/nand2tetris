@@ -29,7 +29,7 @@ class Main {
         do paddle.draw();
 
         // Position ball in centre of screen and begin moving diagonally downwards
-        let ball = Ball.new(256, 120, 3, 2, 2);
+        let ball = Ball.new(256, 120, 3, 1, 1);
         do ball.draw();
 
         // Boolean value to control while loop
@@ -42,15 +42,15 @@ class Main {
             let key = Keyboard.keyPressed();
 
             // Changes direction based on user input "A" or "D"
-            if (key = 97) { 
+            if (key = 65) { 
                 do paddle.moveLeft(step); 
                 }
-            if (key = 100) {
+            if (key = 68) {
                 do paddle.moveRight(step); 
                 }
 
             // Allows the user to quite game using "Q"
-            if (key = 113) { 
+            if (key = 81) { 
                 let running = false; 
                 }
 
@@ -85,7 +85,7 @@ class Main {
             // Game finishes if ball exceeds lower limit of screen
             if ((ball.getY() + r) > 255) { let running = false; }
 
-            do Sys.wait(2);
+            do Sys.wait(11);
 
         }
 

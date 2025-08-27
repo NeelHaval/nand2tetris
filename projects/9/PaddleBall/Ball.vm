@@ -1,0 +1,103 @@
+function Ball.new 0
+push constant 5
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push argument 1
+pop this 1
+push argument 2
+pop this 2
+push argument 3
+pop this 3
+push argument 4
+pop this 4
+push pointer 0
+return
+function Ball.draw 0
+push argument 0
+pop pointer 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 1
+push this 2
+call Screen.drawCircle 3
+pop temp 0
+push constant 0
+return
+function Ball.erase 0
+push argument 0
+pop pointer 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 1
+push this 2
+call Screen.drawCircle 3
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push constant 0
+return
+function Ball.step 0
+push argument 0
+pop pointer 0
+push this 0
+push this 3
+add
+pop this 0
+push this 1
+push this 4
+add
+pop this 1
+push constant 0
+return
+function Ball.reverseX 0
+push argument 0
+pop pointer 0
+push constant 0
+push this 3
+sub
+pop this 3
+push constant 0
+return
+function Ball.reverseY 0
+push argument 0
+pop pointer 0
+push constant 0
+push this 4
+sub
+pop this 4
+push constant 0
+return
+function Ball.getX 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Ball.getY 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function Ball.getR 0
+push argument 0
+pop pointer 0
+push this 2
+return
+function Ball.getDX 0
+push argument 0
+pop pointer 0
+push this 3
+return
+function Ball.getDY 0
+push argument 0
+pop pointer 0
+push this 4
+return
