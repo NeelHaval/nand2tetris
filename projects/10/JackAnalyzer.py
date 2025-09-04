@@ -4,7 +4,7 @@ import os
 from JackTokenizer import JackTokenizer
 from CompilationEngine import CompilationEngine
 
-# Main method to control overall program flow
+# Main method to control overall flow
 def main():
 
     # Handle when user fails to give valid command line argument
